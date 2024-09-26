@@ -37,6 +37,10 @@ Above, I have given you a training-testing partition.  Train the KNN with $K = 5
 ```{r}
 set.seed(123)
 #STUDENT INPUT
+pr <- knn(iris_train, iris_test, cl = iris_target_category, k=5)
+tab <- table(pr, iris_test_category)
+print(tab)
+
 ```
 
 #
@@ -44,12 +48,17 @@ set.seed(123)
 Discuss your results.  If you have done this correctly, you should have a classification error rate that is roughly 20% higher than what we observed in class.  Why is this the case? In particular run a summary of the `iris_test_category` as well as `iris_target_category` and discuss how this plays a role in your answer.  
 
 *STUDENT INPUT* 
-
+```{r}
+summary(iris_test_category)
+summary(iris_target_category)
+```
+Th reason the classification error may be so high is because of the selection of training and testing data. Instead of handpicking values to go into testing, it is better to do so randomly. In particular, it appears that the test data had a unproportionally high number of versicolor and low number of virginica values as compared to the train. Ideally, we would like them to both have similar proportions of each class label.
 #
 
 Choice of $K$ can also influence this classifier.  Why would choosing $K = 6$ not be advisable for this data? 
 
 *STUDENT INPUT*
+A choice of K=6 is bad because you always want your K to be a odd number. If it is even then we open up the possibility of there being 3 of the nearest neighbors in one class and 3 in the other class. This would mean that we wouldn't be able to classify the observation as either class.
 
 #
 
