@@ -65,4 +65,5 @@ A choice of K=6 is bad because you always want your K to be a odd number. If it 
 Build a github repository to store your homework assignments.  Share the link in this file.  
 
 *STUDENT INPUT*
+https://github.com/masonboyles/HW2
 
